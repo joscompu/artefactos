@@ -2,8 +2,6 @@ import java.util.Scanner;
 
 abstract class Device {
     private Boolean onOff = false;
-    int sub;
-    Scanner sc = new Scanner(System.in);
 
     public Boolean getOnOff() {
         return onOff;
@@ -11,21 +9,11 @@ abstract class Device {
 
     public void setOnOff(Boolean onOff) {
         if (onOff == true) {
-
-            if (getOnOff() == false) {
-                this.onOff = onOff;
-                System.out.println("Dispositivo encendido");
-            } else {
-                System.out.println("No puedes encender el dispositivo si ya esta encendido");
-            }
-
+            this.onOff = onOff;
+            System.out.println("Dispositivo encendido");
         } else {
-            if (getOnOff() == true) {
-                this.onOff = onOff;
-                System.out.println("Dispositivo apagado");
-            } else {
-                System.out.println("No puedes apagar el dispositivo si ya esta apagado");
-            }
+            this.onOff = onOff;
+            System.out.println("Dispositivo apagado");
         }
     }
 
@@ -36,8 +24,6 @@ abstract class Device {
     public void turnOff() {
         setOnOff(false);
     }
-
-    abstract void menu();
 }
 
 
@@ -50,21 +36,11 @@ class Dvd extends Device {
 
     public void setPlayStop(Boolean playStop) {
         if (playStop == true) {
-
-            if (getPlayStop() == false) {
-                this.playStop = playStop;
-                System.out.println("Reproduciendo DVD ");
-            } else {
-                System.out.println("eL DVD ya se encuentra reproduciendo");
-            }
-
+            this.playStop = playStop;
+            System.out.println("Reproduciendo DVD ");
         } else {
-            if (getPlayStop() == true) {
-                this.playStop = playStop;
-                System.out.println("DVD pausado");
-            } else {
-                System.out.println("El DVD ya se encuentra pausado");
-            }
+            this.playStop = playStop;
+            System.out.println("DVD pausado");
         }
     }
 
@@ -76,33 +52,6 @@ class Dvd extends Device {
         setPlayStop(false);
     }
 
-    @Override
-    void menu() {
-        do {
-            System.out.println("¿Que opcion desea realizar?");
-            System.out.println("1)Encender DVD" +
-                    "\n" + "2)Apagar DVD" +
-                    "\n" + "3)Reproducir DVD" +
-                    "\n" + "4)Pausar DVD" +
-                    "\n" + "5)Salir" + "\n\n");
-            sub = sc.nextInt();
-
-            switch (sub) {
-                case 1:
-                    turnOn();
-                    break;
-                case 2:
-                    turnOff();
-                    break;
-                case 3:
-                    playDvd();
-                    break;
-                case 4:
-                    stopDvd();
-                    break;
-            }
-        } while (sub != 5);
-    }
 }
 
 class TV extends Device {
@@ -153,41 +102,6 @@ class TV extends Device {
         setVolume(volume - 1);
     }
 
-    @Override
-    void menu() {
-        do {
-            System.out.println("¿Que opcion desea realizar?");
-            System.out.println("1)Encender TV" +
-                    "\n" + "2)Apagar TV" +
-                    "\n" + "3)Subir volumen" +
-                    "\n" + "4)Bajar volumen" +
-                    "\n" + "5)Siquiente canal" +
-                    "\n" + "6)Canal anterior" +
-                    "\n" + "7)Salir" + "\n\n");
-            sub = sc.nextInt();
-
-            switch (sub) {
-                case 1:
-                    turnOn();
-                    break;
-                case 2:
-                    turnOff();
-                    break;
-                case 3:
-                    volumeUp();
-                    break;
-                case 4:
-                    volumeDown();
-                    break;
-                case 5:
-                    channelUp();
-                    break;
-                case 6:
-                    channelDown();
-                    break;
-            }
-        } while (sub != 7);
-    }
 }
 
 class Microwave extends Device {
@@ -199,21 +113,11 @@ class Microwave extends Device {
 
     public void setHeatUp(Boolean heatUp) {
         if (heatUp == true) {
-
-            if (getHeatUp() == false) {
-                this.heatUp = heatUp;
-                System.out.println("Calentando");
-            } else {
-                System.out.println("El microondas ya se encuentra calentando");
-            }
-
+            this.heatUp = heatUp;
+            System.out.println("Calentando");
         } else {
-            if (getHeatUp() == true) {
-                this.heatUp = heatUp;
-                System.out.println("Detenido");
-            } else {
-                System.out.println("El microondas ya se encuentra detenido");
-            }
+            this.heatUp = heatUp;
+            System.out.println("Detenido");
         }
     }
 
@@ -225,33 +129,6 @@ class Microwave extends Device {
         setHeatUp(false);
     }
 
-    @Override
-    void menu() {
-        do {
-            System.out.println("¿Que opcion desea realizar?");
-            System.out.println("1)Encender microondas" +
-                    "\n" + "2)Apagar microondas" +
-                    "\n" + "3)Calentar" +
-                    "\n" + "4)Detener" +
-                    "\n" + "5)Salir" + "\n\n");
-            sub = sc.nextInt();
-
-            switch (sub) {
-                case 1:
-                    turnOn();
-                    break;
-                case 2:
-                    turnOff();
-                    break;
-                case 3:
-                    heat();
-                    break;
-                case 4:
-                    stop();
-                    break;
-            }
-        } while (sub != 5);
-    }
 }
 
 class Ps5 extends Device {
@@ -263,23 +140,14 @@ class Ps5 extends Device {
 
     public void setGame(Boolean game) {
         if (game == true) {
-
-            if (getGame() == false) {
-                this.game = game;
-                System.out.println("Jugando");
-            } else {
-                System.out.println("El PS5 ya ha iniciado el juego");
-            }
-
+            this.game = game;
+            System.out.println("Jugando");
         } else {
-            if (getGame() == true) {
-                this.game = game;
-                System.out.println("Juego detenido");
-            } else {
-                System.out.println("El PS5 ya ha detenido el juego");
-            }
+            this.game = game;
+            System.out.println("Juego detenido");
         }
     }
+
 
     public void playing() {
         setGame(true);
@@ -289,43 +157,17 @@ class Ps5 extends Device {
         setGame(false);
     }
 
-    @Override
-    void menu() {
-        do {
-            System.out.println("¿Que opcion desea realizar?");
-            System.out.println("1)Encender PS5" +
-                    "\n" + "2)Apagar PS5" +
-                    "\n" + "3)Jugar" +
-                    "\n" + "4)Detener juego" +
-                    "\n" + "5)Salir" + "\n\n");
-            sub = sc.nextInt();
-
-            switch (sub) {
-                case 1:
-                    turnOn();
-                    break;
-                case 2:
-                    turnOff();
-                    break;
-                case 3:
-                    playing();
-                    break;
-                case 4:
-                    standBy();
-                    break;
-            }
-        } while (sub != 5);
-    }
 }
 
 public class DeviceApp {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Device Dv1 = new Dvd();
-        Device Dv2 = new TV();
-        Device Dv3 = new Microwave();
-        Device Dv4 = new Ps5();
+        Dvd Dv1 = new Dvd();
+        TV Dv2 = new TV();
+        Microwave Dv3 = new Microwave();
+        Ps5 Dv4 = new Ps5();
         int opc;
+        int sub;
 
         do {
             System.out.println("¿Que Dispositivo desea utilizar?");
@@ -340,16 +182,116 @@ public class DeviceApp {
             switch (opc) {
 
                 case 1:
-                    Dv1.menu();
+                    do {
+                        System.out.println("¿Que opcion desea realizar?");
+                        System.out.println("1)Encender DVD" +
+                                "\n" + "2)Apagar DVD" +
+                                "\n" + "3)Reproducir DVD" +
+                                "\n" + "4)Pausar DVD" +
+                                "\n" + "5)Salir" + "\n\n");
+                        sub = sc.nextInt();
+
+                        switch (sub) {
+                            case 1:
+                                Dv1.turnOn();
+                                break;
+                            case 2:
+                                Dv1.turnOff();
+                                break;
+                            case 3:
+                                Dv1.playDvd();
+                                break;
+                            case 4:
+                                Dv1.stopDvd();
+                                break;
+                        }
+                    } while (sub != 5);
                     break;
                 case 2:
-                    Dv2.menu();
+                    do {
+                        System.out.println("¿Que opcion desea realizar?");
+                        System.out.println("1)Encender TV" +
+                                "\n" + "2)Apagar TV" +
+                                "\n" + "3)Subir volumen" +
+                                "\n" + "4)Bajar volumen" +
+                                "\n" + "5)Siquiente canal" +
+                                "\n" + "6)Canal anterior" +
+                                "\n" + "7)Salir" + "\n\n");
+                        sub = sc.nextInt();
+
+                        switch (sub) {
+                            case 1:
+                                Dv2.turnOn();
+                                break;
+                            case 2:
+                                Dv2.turnOff();
+                                break;
+                            case 3:
+                                Dv2.volumeUp();
+                                break;
+                            case 4:
+                                Dv2.volumeDown();
+                                break;
+                            case 5:
+                                Dv2.channelUp();
+                                break;
+                            case 6:
+                                Dv2.channelDown();
+                                break;
+                        }
+                    } while (sub != 7);
                     break;
                 case 3:
-                    Dv3.menu();
+                    do {
+                        System.out.println("¿Que opcion desea realizar?");
+                        System.out.println("1)Encender microondas" +
+                                "\n" + "2)Apagar microondas" +
+                                "\n" + "3)Calentar" +
+                                "\n" + "4)Detener" +
+                                "\n" + "5)Salir" + "\n\n");
+                        sub = sc.nextInt();
+
+                        switch (sub) {
+                            case 1:
+                                Dv3.turnOn();
+                                break;
+                            case 2:
+                                Dv3.turnOff();
+                                break;
+                            case 3:
+                                Dv3.heat();
+                                break;
+                            case 4:
+                                Dv3.stop();
+                                break;
+                        }
+                    } while (sub != 5);
                     break;
                 case 4:
-                    Dv4.menu();
+                    do {
+                        System.out.println("¿Que opcion desea realizar?");
+                        System.out.println("1)Encender PS5" +
+                                "\n" + "2)Apagar PS5" +
+                                "\n" + "3)Jugar" +
+                                "\n" + "4)Detener juego" +
+                                "\n" + "5)Salir" + "\n\n");
+                        sub = sc.nextInt();
+
+                        switch (sub) {
+                            case 1:
+                                Dv4.turnOn();
+                                break;
+                            case 2:
+                                Dv4.turnOff();
+                                break;
+                            case 3:
+                                Dv4.playing();
+                                break;
+                            case 4:
+                                Dv4.standBy();
+                                break;
+                        }
+                    } while (sub != 5);
                     break;
             }
 
