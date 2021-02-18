@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 abstract class Device {
@@ -162,140 +163,171 @@ class Ps5 extends Device {
 public class DeviceApp {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Dvd Dv1 = new Dvd();
-        TV Dv2 = new TV();
-        Microwave Dv3 = new Microwave();
-        Ps5 Dv4 = new Ps5();
+        ArrayList<Integer> deviceList = new ArrayList<>();
+        int[] Device = new int[6];
+        for (int i = 0; i < Device.length; i++) {
+            Device[i] = i;
+            deviceList.add(Device[i]);
+        }
+
         int opc;
         int sub;
 
         do {
+
             System.out.println("¿Que Dispositivo desea utilizar?");
             System.out.println("1)DVD" +
                     "\n" + "2)TV" +
                     "\n" + "3)Microondas" +
                     "\n" + "4)PS5" +
-                    "\n" + "5)Salir" + "\n\n");
-
+                    "\n" + "0)Salir" + "\n\n");
             opc = sc.nextInt();
+            int index = deviceList.indexOf(opc);
 
-            switch (opc) {
+            if (index == 1) {
+                do {
+                    Dvd dv1 = new Dvd();
+                    ArrayList<Integer> dvdActs = new ArrayList<>();
+                    int[] dvd = new int[6];
+                    for (int i = 0; i < dvd.length; i++) {
+                        dvd[i] = i;
+                        dvdActs.add(dvd[i]);
+                    }
 
-                case 1:
-                    do {
-                        System.out.println("¿Que opcion desea realizar?");
-                        System.out.println("1)Encender DVD" +
-                                "\n" + "2)Apagar DVD" +
-                                "\n" + "3)Reproducir DVD" +
-                                "\n" + "4)Pausar DVD" +
-                                "\n" + "5)Salir" + "\n\n");
-                        sub = sc.nextInt();
+                    System.out.println("¿Que opcion desea realizar?");
+                    System.out.println("1)Encender DVD" +
+                            "\n" + "2)Apagar DVD" +
+                            "\n" + "3)Reproducir DVD" +
+                            "\n" + "4)Pausar DVD" +
+                            "\n" + "0)Salir" + "\n\n");
+                    sub = sc.nextInt();
+                    int dvdIndex = dvdActs.indexOf(sub);
 
-                        switch (sub) {
-                            case 1:
-                                Dv1.turnOn();
-                                break;
-                            case 2:
-                                Dv1.turnOff();
-                                break;
-                            case 3:
-                                Dv1.playDvd();
-                                break;
-                            case 4:
-                                Dv1.stopDvd();
-                                break;
-                        }
-                    } while (sub != 5);
-                    break;
-                case 2:
-                    do {
-                        System.out.println("¿Que opcion desea realizar?");
-                        System.out.println("1)Encender TV" +
-                                "\n" + "2)Apagar TV" +
-                                "\n" + "3)Subir volumen" +
-                                "\n" + "4)Bajar volumen" +
-                                "\n" + "5)Siquiente canal" +
-                                "\n" + "6)Canal anterior" +
-                                "\n" + "7)Salir" + "\n\n");
-                        sub = sc.nextInt();
-
-                        switch (sub) {
-                            case 1:
-                                Dv2.turnOn();
-                                break;
-                            case 2:
-                                Dv2.turnOff();
-                                break;
-                            case 3:
-                                Dv2.volumeUp();
-                                break;
-                            case 4:
-                                Dv2.volumeDown();
-                                break;
-                            case 5:
-                                Dv2.channelUp();
-                                break;
-                            case 6:
-                                Dv2.channelDown();
-                                break;
-                        }
-                    } while (sub != 7);
-                    break;
-                case 3:
-                    do {
-                        System.out.println("¿Que opcion desea realizar?");
-                        System.out.println("1)Encender microondas" +
-                                "\n" + "2)Apagar microondas" +
-                                "\n" + "3)Calentar" +
-                                "\n" + "4)Detener" +
-                                "\n" + "5)Salir" + "\n\n");
-                        sub = sc.nextInt();
-
-                        switch (sub) {
-                            case 1:
-                                Dv3.turnOn();
-                                break;
-                            case 2:
-                                Dv3.turnOff();
-                                break;
-                            case 3:
-                                Dv3.heat();
-                                break;
-                            case 4:
-                                Dv3.stop();
-                                break;
-                        }
-                    } while (sub != 5);
-                    break;
-                case 4:
-                    do {
-                        System.out.println("¿Que opcion desea realizar?");
-                        System.out.println("1)Encender PS5" +
-                                "\n" + "2)Apagar PS5" +
-                                "\n" + "3)Jugar" +
-                                "\n" + "4)Detener juego" +
-                                "\n" + "5)Salir" + "\n\n");
-                        sub = sc.nextInt();
-
-                        switch (sub) {
-                            case 1:
-                                Dv4.turnOn();
-                                break;
-                            case 2:
-                                Dv4.turnOff();
-                                break;
-                            case 3:
-                                Dv4.playing();
-                                break;
-                            case 4:
-                                Dv4.standBy();
-                                break;
-                        }
-                    } while (sub != 5);
-                    break;
+                    if (dvdIndex == 1) {
+                        dv1.turnOn();
+                    }
+                    if (dvdIndex == 2) {
+                        dv1.turnOff();
+                    }
+                    if (dvdIndex == 3) {
+                        dv1.playDvd();
+                    }
+                    if (dvdIndex == 4) {
+                        dv1.stopDvd();
+                    }
+                } while (sub != 0);
             }
 
-        } while (opc != 5);
+            if (index == 2) {
+                do {
+                    TV dv2 = new TV();
+                    ArrayList<Integer> tvActs = new ArrayList<>();
+                    int[] tv = new int[8];
+                    for (int i = 0; i < tv.length; i++) {
+                        tv[i] = i;
+                        tvActs.add(tv[i]);
+                    }
+
+                    System.out.println("¿Que opcion desea realizar?");
+                    System.out.println("1)Encender TV" +
+                            "\n" + "2)Apagar TV" +
+                            "\n" + "3)Subir volumen" +
+                            "\n" + "4)Bajar volumen" +
+                            "\n" + "5)Siquiente canal" +
+                            "\n" + "6)Canal anterior" +
+                            "\n" + "0)Salir" + "\n\n");
+                    sub = sc.nextInt();
+                    int tvIndex = tvActs.indexOf(sub);
+
+                    if (tvIndex == 1) {
+                        dv2.turnOn();
+                    }
+                    if (tvIndex == 2) {
+                        dv2.turnOff();
+                    }
+                    if (tvIndex == 3) {
+                        dv2.volumeUp();
+                    }
+                    if (tvIndex == 4) {
+                        dv2.volumeDown();
+                    }
+                    if (tvIndex == 5) {
+                        dv2.channelUp();
+                    }
+                    if (tvIndex == 6) {
+                        dv2.channelDown();
+                    }
+                } while (sub != 0);
+            }
+
+            if (index == 3) {
+                do {
+                    Microwave dv3 = new Microwave();
+                    ArrayList<Integer> microActs = new ArrayList<>();
+                    int[] micro = new int[6];
+                    for (int i = 0; i < micro.length; i++) {
+                        micro[i] = i;
+                        microActs.add(micro[i]);
+                    }
+
+                    System.out.println("¿Que opcion desea realizar?");
+                    System.out.println("1)Encender microondas" +
+                            "\n" + "2)Apagar microondas" +
+                            "\n" + "3)Calentar" +
+                            "\n" + "4)Detener" +
+                            "\n" + "0)Salir" + "\n\n");
+                    sub = sc.nextInt();
+                    int microIndex = microActs.indexOf(sub);
+
+                    if (microIndex == 1) {
+                        dv3.turnOn();
+                    }
+                    if (microIndex == 2) {
+                        dv3.turnOff();
+                    }
+                    if (microIndex == 3) {
+                        dv3.heat();
+                    }
+                    if (microIndex == 4) {
+                        dv3.stop();
+                    }
+                } while (sub != 0);
+            }
+
+            if (index == 4) {
+                do {
+                    Ps5 dv4 = new Ps5();
+                    ArrayList<Integer> ps5Acts = new ArrayList<>();
+                    int[] ps5 = new int[6];
+                    for (int i = 0; i < ps5.length; i++) {
+                        ps5[i] = i;
+                        ps5Acts.add(ps5[i]);
+                    }
+
+                    System.out.println("¿Que opcion desea realizar?");
+                    System.out.println("1)Encender PS5" +
+                            "\n" + "2)Apagar PS5" +
+                            "\n" + "3)Jugar" +
+                            "\n" + "4)Detener juego" +
+                            "\n" + "0)Salir" + "\n\n");
+                    sub = sc.nextInt();
+                    int ps5Index = ps5Acts.indexOf(sub);
+
+                    if (ps5Index == 1) {
+                        dv4.turnOn();
+                    }
+                    if (ps5Index == 2) {
+                        dv4.turnOff();
+                    }
+                    if (ps5Index == 3) {
+                        dv4.playing();
+                    }
+                    if (ps5Index == 4) {
+                        dv4.standBy();
+                    }
+                } while (sub != 0);
+            }
+        } while (opc != 0);
 
     }
 }
