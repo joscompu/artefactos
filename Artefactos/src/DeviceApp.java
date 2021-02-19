@@ -185,8 +185,8 @@ public class DeviceApp {
             int index = deviceList.indexOf(opc);
 
             if (index == 1) {
+                Dvd dv1 = new Dvd();
                 do {
-                    Dvd dv1 = new Dvd();
                     ArrayList<Integer> dvdActs = new ArrayList<>();
                     int[] dvd = new int[6];
                     for (int i = 0; i < dvd.length; i++) {
@@ -219,8 +219,8 @@ public class DeviceApp {
             }
 
             if (index == 2) {
+                TV dv2 = new TV();
                 do {
-                    TV dv2 = new TV();
                     ArrayList<Integer> tvActs = new ArrayList<>();
                     int[] tv = new int[8];
                     for (int i = 0; i < tv.length; i++) {
@@ -261,8 +261,8 @@ public class DeviceApp {
             }
 
             if (index == 3) {
+                Microwave dv3 = new Microwave();
                 do {
-                    Microwave dv3 = new Microwave();
                     ArrayList<Integer> microActs = new ArrayList<>();
                     int[] micro = new int[6];
                     for (int i = 0; i < micro.length; i++) {
@@ -295,8 +295,8 @@ public class DeviceApp {
             }
 
             if (index == 4) {
+                Ps5 dv4 = new Ps5();
                 do {
-                    Ps5 dv4 = new Ps5();
                     ArrayList<Integer> ps5Acts = new ArrayList<>();
                     int[] ps5 = new int[6];
                     for (int i = 0; i < ps5.length; i++) {
