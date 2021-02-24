@@ -284,6 +284,7 @@ public class DeviceApp {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ArrayList<Device> deviceList = new ArrayList<>();
+        deviceList.add(null);
         deviceList.add(new Dvd());
         deviceList.add(new TV());
         deviceList.add(new Microwave());
@@ -295,13 +296,13 @@ public class DeviceApp {
         do {
 
             System.out.println("¿Que Dispositivo desea utilizar?");
-            System.out.println("0)DVD" +
-                    "\n" + "1)TV" +
-                    "\n" + "2)Microondas" +
-                    "\n" + "3)PS5" +
-                    "\n" + "4)Salir" + "\n\n");
+            System.out.println("1)DVD" +
+                    "\n" + "2)TV" +
+                    "\n" + "3)Microondas" +
+                    "\n" + "4)PS5" +
+                    "\n" + "0)Salir" + "\n\n");
             opc = sc.nextInt();
-            if (opc == 4) {
+            if (opc == 0) {
                 break;
             } else {
                 do {
@@ -310,7 +311,7 @@ public class DeviceApp {
                     deviceList.get(opc).action(sub);
                 } while (sub != 0);
             }
-        } while (opc != 4);
+        } while (opc != 0);
 
     }
 }
