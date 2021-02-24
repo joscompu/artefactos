@@ -28,7 +28,7 @@ abstract class Device {
 
     abstract void menu();
 
-    abstract void action(int x, int y);
+    abstract void action(int selected);
 }
 
 
@@ -68,20 +68,20 @@ class Dvd extends Device {
     }
 
     @Override
-    void action(int x, int y) {
-        if (y == 0) {
-            if (x == 1) {
+    void action(int selected) {
+        switch (selected) {
+            case 1:
                 turnOn();
-            }
-            if (x == 2) {
+                break;
+            case 2:
                 turnOff();
-            }
-            if (x == 3) {
+                break;
+            case 3:
                 playDvd();
-            }
-            if (x == 4) {
+                break;
+            case 4:
                 stopDvd();
-            }
+                break;
         }
     }
 }
@@ -147,27 +147,26 @@ class TV extends Device {
     }
 
     @Override
-    void action(int x, int y) {
-        if (y == 1) {
-
-            if (x == 1) {
+    void action(int selected) {
+        switch (selected) {
+            case 1:
                 turnOn();
-            }
-            if (x == 2) {
+                break;
+            case 2:
                 turnOff();
-            }
-            if (x == 3) {
+                break;
+            case 3:
                 volumeUp();
-            }
-            if (x == 4) {
+                break;
+            case 4:
                 volumeDown();
-            }
-            if (x == 5) {
+                break;
+            case 5:
                 channelUp();
-            }
-            if (x == 6) {
+                break;
+            case 6:
                 channelDown();
-            }
+                break;
         }
     }
 }
@@ -208,20 +207,20 @@ class Microwave extends Device {
     }
 
     @Override
-    void action(int x, int y) {
-        if (y == 2) {
-            if (x == 1) {
+    void action(int selected) {
+        switch (selected) {
+            case 1:
                 turnOn();
-            }
-            if (x == 2) {
+                break;
+            case 2:
                 turnOff();
-            }
-            if (x == 3) {
+                break;
+            case 3:
                 heat();
-            }
-            if (x == 4) {
+                break;
+            case 4:
                 stop();
-            }
+                break;
         }
     }
 }
@@ -263,20 +262,20 @@ class Ps5 extends Device {
     }
 
     @Override
-    void action(int x, int y) {
-        if (y == 3) {
-            if (x == 1) {
+    void action(int selected) {
+        switch (selected) {
+            case 1:
                 turnOn();
-            }
-            if (x == 2) {
+                break;
+            case 2:
                 turnOff();
-            }
-            if (x == 3) {
+                break;
+            case 3:
                 playing();
-            }
-            if (x == 4) {
+                break;
+            case 4:
                 standBy();
-            }
+                break;
         }
     }
 }
@@ -304,14 +303,14 @@ public class DeviceApp {
             opc = sc.nextInt();
             if (opc == 4) {
                 break;
-            }else {
+            } else {
                 do {
                     deviceList.get(opc).menu();
                     sub = sc.nextInt();
-                    deviceList.get(opc).action(sub, opc);
+                    deviceList.get(opc).action(sub);
                 } while (sub != 0);
             }
-        } while (opc != 4 );
+        } while (opc != 4);
 
     }
 }
