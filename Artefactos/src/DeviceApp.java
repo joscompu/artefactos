@@ -289,11 +289,10 @@ public class DeviceApp {
         deviceList.add(new Microwave());
         deviceList.add(new Ps5());
 
-        int opc;
+        int opc = 0;
         int sub;
-        int compare;
 
-        do {
+        while (opc >= 0) {
 
             System.out.println("¿Que Dispositivo desea utilizar?");
             System.out.println("1)DVD" +
@@ -302,20 +301,16 @@ public class DeviceApp {
                     "\n" + "4)PS5" +
                     "\n" + "0)Salir" + "\n\n");
             opc = sc.nextInt();
-            compare = opc;
             if (opc == 0) {
                 break;
             } else {
+                opc = opc - 1;
                 do {
-                    while (compare >= opc) {
-                        compare--;
-                    }
-                    deviceList.get(compare).menu();
+                    deviceList.get(opc).menu();
                     sub = sc.nextInt();
-                    deviceList.get(compare).action(sub);
+                    deviceList.get(opc).action(sub);
                 } while (sub != 0);
             }
-        } while (opc != 0);
-
+        }
     }
 }
