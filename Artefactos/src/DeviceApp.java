@@ -284,7 +284,6 @@ public class DeviceApp {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ArrayList<Device> deviceList = new ArrayList<>();
-        deviceList.add(null);
         deviceList.add(new Dvd());
         deviceList.add(new TV());
         deviceList.add(new Microwave());
@@ -292,6 +291,7 @@ public class DeviceApp {
 
         int opc;
         int sub;
+        int compare;
 
         do {
 
@@ -302,13 +302,17 @@ public class DeviceApp {
                     "\n" + "4)PS5" +
                     "\n" + "0)Salir" + "\n\n");
             opc = sc.nextInt();
+            compare = opc;
             if (opc == 0) {
                 break;
             } else {
                 do {
-                    deviceList.get(opc).menu();
+                    while (compare >= opc) {
+                        compare--;
+                    }
+                    deviceList.get(compare).menu();
                     sub = sc.nextInt();
-                    deviceList.get(opc).action(sub);
+                    deviceList.get(compare).action(sub);
                 } while (sub != 0);
             }
         } while (opc != 0);
